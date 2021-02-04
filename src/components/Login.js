@@ -1,5 +1,6 @@
 import React from 'react'
 import { loadUsers } from '../actions/users'
+import { authUser } from '../actions/authUser'
 import { connect } from 'react-redux'
 
 
@@ -13,14 +14,14 @@ class Login extends React.Component {
     this.props.dispatch(loadUsers())
     }
 
-    handleChange = (e) => {
+    handleChange = (event) => {
         this.setState({
-            selectedUser: e.target.value
+            selectedUser: event.target[event.target.selectedIndex].id
         })
     }
 
-    handleSubmit = () => {
-        alert(this.state.selectedUser)
+    handleSubmit = (e) => {
+        this.props.dispatch(authUser(this.state.selectedUser))
     }
 
     render () {
@@ -32,7 +33,7 @@ class Login extends React.Component {
                     Please select your name
                     <select value={this.state.selectedUser} onChange={this.handleChange}>
                         {this.props.users.map(user =>
-                            <option key={user.id}>{user.name}</option>
+                            <option id={user.id} key={user.id}>{user.name}</option>
                         )}
                     </select>
                     <button type="submit" onClick={this.handleSubmit}>Login</button>
