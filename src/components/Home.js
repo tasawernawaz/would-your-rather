@@ -1,9 +1,16 @@
 import React from 'react'
+import Nav from '../components/Nav'
+import { BrowserRouter, Route} from 'react-router-dom'
+
+
+
 
 class Home extends React.Component {
     render () {
         return (
-            <h1>This is a home page</h1>
+            <BrowserRouter>
+                <Nav />
+            </BrowserRouter>
         )
     }
 }
