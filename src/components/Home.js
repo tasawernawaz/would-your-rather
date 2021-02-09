@@ -11,7 +11,7 @@ class Home extends React.Component {
         return (
             <BrowserRouter>
                 <Nav />
-                <Route exact path='/new' component={NewQuestion}/>
+                <Route exact path='/add' component={NewQuestion}/>
             </BrowserRouter>
         )
     }
