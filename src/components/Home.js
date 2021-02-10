@@ -1,12 +1,33 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import Question from '../components/Question'
+import { handleInitialData } from '../actions/shared'
 
 
 class Home extends React.Component {
+
+    componentDidMount() {
+        this.props.dispatch(handleInitialData())
+    }
+
     render () {
         return (
-            <div> home</div>
+            <div>
+                <ul>
+                    {this.props.questions.map(question =>
+                        <li><Question questionId={question.id} /></li>
+                    )}
+                </ul>
+            </div>
         )
     }
 }
 
-export default Home
+function mapStateToProps({questions}) {
+    return {
+        questions: Object.values(questions)
+    }
+}
+
+export default connect(mapStateToProps)(Home)

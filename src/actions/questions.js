@@ -12,7 +12,7 @@ export function createQuestion (question) {
 }
 
 
-export function receiveQuestion (questions) {
+export function receiveQuestions (questions) {
     return {
         type: RECEIVE_QUESTIONS,
         questions
@@ -29,10 +29,11 @@ export function createQuestionCreator (option1, option2) {
     }
 }
 
-export function receiveQuestionCreator () {
+
+export function receiveQuestionCreator() {
     return (dispatch) => {
-        return getQuestions().then(questions => {
-            dispatch(receiveQuestion(questions))
+        return getQuestions().then((questions) => {
+            dispatch(receiveQuestions(questions))
         })
     }
 }
