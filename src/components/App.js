@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import NewQuestion from '../components/NewQuestion'
 import Nav from '../components/Nav'
 import { BrowserRouter, Route } from 'react-router-dom'
+import QuestionDetail from './QuestionDetail'
 
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/signin' component={Login}/>
                 <Route exact path='/add' component={NewQuestion}/>
+                <Route exact path='/question/:id' component={QuestionDetail}/>
             </BrowserRouter>
       </React.Fragment>
     )

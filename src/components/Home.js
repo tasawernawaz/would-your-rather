@@ -24,7 +24,8 @@ class Home extends React.Component {
     }
 }
 
-function mapStateToProps({questions}) {
+function mapStateToProps({questions, users, authUser}) {
+
     return {
         questions: Object.values(questions)
     }
