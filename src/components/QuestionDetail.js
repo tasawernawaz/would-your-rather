@@ -28,7 +28,7 @@ class QuestionDetail extends React.Component {
             <div>
                 <h2>Question Details</h2>
                 {this.state.answered === true ?
-                <AnsweredQuestion user={user} question={question}/>
+                <AnsweredQuestion questionId={this.props.match.params.id}/>
                 : <UnansweredQuestion
                 user={user}
                 question={question}
