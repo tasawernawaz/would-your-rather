@@ -20,10 +20,10 @@ export function receiveQuestions (questions) {
 }
 
 
-export function createQuestionCreator (option1, option2) {
+export function createQuestionCreator (optionOneText, optionTwoText) {
     return (dispatch, getState) => {
         const { authUser: author } = getState()
-        return createQuestionApi({option1, option2, author}).then((question) => {
+        return createQuestionApi({optionOneText, optionTwoText, author}).then((question) => {
             dispatch(createQuestion(question))
         })
     }

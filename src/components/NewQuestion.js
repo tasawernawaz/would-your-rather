@@ -5,13 +5,13 @@ import { createQuestionCreator } from '../actions/questions'
 
 class NewQuestion extends React.Component {
     state = {
-        option1: "",
-        option2: ""
+        optionOneText: "",
+        optionTwoText: ""
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.dispatch(createQuestionCreator(this.state.option1, this.state.option2))
+        this.props.dispatch(createQuestionCreator(this.state.optionOneText, this.state.optionTwoText))
     }
     render () {
         return (
@@ -21,14 +21,14 @@ class NewQuestion extends React.Component {
                 <h3>Would you rather?</h3>
                 <form onSubmit={this.handleSubmit}>
                     <input
-                    value={this.state.option1}
-                    onChange={e => this.setState({option1: e.target.value})}
+                    value={this.state.optionOneText}
+                    onChange={e => this.setState({optionOneText: e.target.value})}
                     placeholder="Option one"></input>
                     OR
                     <input
                     placeholder="Option two"
-                    value={this.state.option2}
-                    onChange={e => this.setState({option2: e.target.value})}
+                    value={this.state.optionTwoText}
+                    onChange={e => this.setState({optionTwoText: e.target.value})}
                     ></input>
                     <button type="submit">Save Question</button>
                 </form>
