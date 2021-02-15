@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import AnsweredQuestion from './AnsweredQuestion'
 import UnansweredQuestion from './UnansweredQuestion'
 import { createSaveQuestionAnswer } from '../actions/questions'
+import { hasUserAnswered } from '../utils/api'
 
 
 class QuestionDetail extends React.Component {
@@ -10,10 +11,8 @@ class QuestionDetail extends React.Component {
     constructor(props) {
         super(props)
 
-        const { optionOne, optionTwo } = this.props.question
-
         this.state = {
-            answered : (optionOne.votes + optionTwo.votes).includes(this.props.authUser)
+            answered : hasUserAnswered(this.props.question, this.props.authUser)
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }

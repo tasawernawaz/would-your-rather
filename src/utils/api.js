@@ -30,3 +30,8 @@ import {
   export function saveQuestionAnswerApi(data) {
     return _saveQuestionAnswer(data)
   }
+
+export function hasUserAnswered(question, user) {
+  const { optionOne, optionTwo } = question
+  return (optionOne.votes + optionTwo.votes).includes(user)
+}
