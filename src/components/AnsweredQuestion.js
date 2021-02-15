@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 class AnsweredQuestion extends React.Component {
 
     render () {
-        const { user, question } = this.props
+        const { user, question, authUser } = this.props
         const { optionOne, optionTwo } = question
         const optionOneVotes = optionOne.votes
         const optionTwoVotes = optionTwo.votes
@@ -19,12 +19,12 @@ class AnsweredQuestion extends React.Component {
                         </div>
                         <div>
                             <p>
-                                {optionOneVotes.includes(user.id) && <strong>You voted for this</strong>}
+                                {optionOneVotes.includes(authUser.id) && <strong>You voted for this</strong>}
                                 {optionOne.text}
                                 <span>{`${optionOneVotes.length} out of ${totalVotes}`}</span>
                             </p>
                             <p>
-                                {optionTwoVotes.includes(user.id) && <strong>You voted for this</strong>}
+                                {optionTwoVotes.includes(authUser.id) && <strong>You voted for this</strong>}
                                 {optionTwo.text}
                                 <span>{`${optionTwoVotes.length} out of ${totalVotes}`}</span>
                             </p>

@@ -23,15 +23,13 @@ class QuestionDetail extends React.Component {
     }
 
     render () {
-        const  {user, question} = this.props
         return (
             <div>
                 <h2>Question Details</h2>
                 {this.state.answered === true ?
                 <AnsweredQuestion questionId={this.props.match.params.id}/>
                 : <UnansweredQuestion
-                user={user}
-                question={question}
+                questionId={this.props.match.params.id}
                 handleSubmit={this.handleSubmit}
                 />
                 }
@@ -40,18 +38,5 @@ class QuestionDetail extends React.Component {
     }
 }
 
-function mapStateToProps({users, questions, authUser}, props) {
-    const questionId = props.match.params.id
-    const question = questions[questionId]
-    const user = users[question.author]
-    const answered = false
 
-    return {
-        question,
-        user,
-        authUser,
-        answered
-    }
-}
-
-export default connect(mapStateToProps)(QuestionDetail)
+export default connect()(QuestionDetail)

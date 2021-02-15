@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
 
 class UnansweredQuestion extends React.Component {
 
@@ -55,4 +55,17 @@ class UnansweredQuestion extends React.Component {
     }
 }
 
-export default UnansweredQuestion
+
+function mapStateToProps({users, questions}, props) {
+    const { questionId } = props
+    const question = questions[questionId]
+    const user = users[question.author]
+
+    return {
+        question,
+        user,
+    }
+}
+
+
+export default  connect(mapStateToProps)(UnansweredQuestion)
