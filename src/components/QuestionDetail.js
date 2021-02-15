@@ -10,23 +10,25 @@ class QuestionDetail extends React.Component {
     constructor(props) {
         super(props)
 
+        const { optionOne, optionTwo } = this.props.question
+
         this.state = {
-            answered : this.props.answered
+            answered : (optionOne.votes + optionTwo.votes).includes(this.props.authUser)
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit = (e, selectedOption) => {
         e.preventDefault()
+        const questionId = this.props.questionId
+        this.props.dispatch(createSaveQuestionAnswer(questionId, selectedOption))
         this.setState({
             answered: true
         })
-        const questionId = this.props.match.params.id
-        this.props.dispatch(createSaveQuestionAnswer(questionId, selectedOption))
     }
 
     render () {
-        const questionId =this.props.match.params.id
+        const questionId = this.props.questionId
         return (
             <div>
                 <h2>Question Details</h2>
@@ -42,6 +44,14 @@ class QuestionDetail extends React.Component {
     }
 }
 
+function mapStateToProps({questions, authUser}, props) {
+    const questionId = props.match.params.id
+    return {
+        authUser,
+        questionId,
+        question: questions[questionId]
+    }
+}
 
 
-export default connect()(QuestionDetail)
+export default connect(mapStateToProps)(QuestionDetail)
