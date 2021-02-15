@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import AnsweredQuestion from './AnsweredQuestion'
 import UnansweredQuestion from './UnansweredQuestion'
+import { createSaveQuestionAnswer } from '../actions/questions'
 
 
 class QuestionDetail extends React.Component {
@@ -15,21 +16,24 @@ class QuestionDetail extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = (e, selectedOption) => {
         e.preventDefault()
         this.setState({
             answered: true
         })
+        const questionId = this.props.match.params.id
+        this.props.dispatch(createSaveQuestionAnswer(questionId, selectedOption))
     }
 
     render () {
+        const questionId =this.props.match.params.id
         return (
             <div>
                 <h2>Question Details</h2>
                 {this.state.answered === true ?
-                <AnsweredQuestion questionId={this.props.match.params.id}/>
+                <AnsweredQuestion questionId={questionId}/>
                 : <UnansweredQuestion
-                questionId={this.props.match.params.id}
+                questionId={questionId}
                 handleSubmit={this.handleSubmit}
                 />
                 }
@@ -37,6 +41,7 @@ class QuestionDetail extends React.Component {
         )
     }
 }
+
 
 
 export default connect()(QuestionDetail)

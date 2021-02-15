@@ -22,7 +22,7 @@ class UnansweredQuestion extends React.Component {
                         <div><img src={user.avatarURL} alt="avatar url" /></div>
                         <div>
                             <strong>would you rather</strong>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={(e) => handleSubmit(e, this.state.selectedOption)}>
 
                                 <label>
                                     <input

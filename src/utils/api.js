@@ -1,7 +1,8 @@
 import {
     _getUsers,
     _getQuestions,
-    _saveQuestion
+    _saveQuestion,
+    _saveQuestionAnswer
   } from './_DATA.js'
 
   export function getInitialData () {
@@ -24,4 +25,8 @@ import {
 
   export function createQuestionApi (question) {
       return _saveQuestion(question)
+  }
+
+  export function saveQuestionAnswerApi(data) {
+    return _saveQuestionAnswer(data)
   }
