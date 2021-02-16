@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createQuestionCreator } from '../actions/questions'
-
+import { Redirect } from 'react-router-dom'
 
 class NewQuestion extends React.Component {
     state = {
@@ -12,8 +12,17 @@ class NewQuestion extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.dispatch(createQuestionCreator(this.state.optionOneText, this.state.optionTwoText))
+        this.setState(() => ({
+            optionOneText: "",
+            optionTwoText: "",
+            redirect: true
+        }))
     }
+
     render () {
+        if (this.state.redirect === true) {
+            return (<Redirect to="/" />)
+        }
         return (
             <div>
                 <h2>Create a new question</h2>
