@@ -2,17 +2,17 @@ import React from 'react'
 import { loadUsers } from '../actions/users'
 import { authUser } from '../actions/authUser'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 
 class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedUser: "none"
+            selectedUser: "none",
+            redirectToReferrer: false
         }
     }
-
-
 
     componentDidMount() {
         this.props.dispatch(loadUsers())
@@ -30,12 +30,23 @@ class Login extends React.Component {
             alert("Please select a valid option before proceed")
         } else {
             this.props.dispatch(authUser(selectedUser))
+            this.setState(() => ({
+                redirectToReferrer: true
+            }))
         }
     }
 
     render () {
+        const { from } = this.props.location.state || { from: { pathname: '/' } }
+        const { redirectToReferrer } = this.state
+
+        if (redirectToReferrer === true) {
+            return <Redirect to={from} />
+        }
+
         return (
             <div>
+
                 <h1>Welcome to would you Rather!</h1>
 
                 <div>
