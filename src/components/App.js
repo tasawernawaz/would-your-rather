@@ -6,6 +6,7 @@ import NewQuestion from '../components/NewQuestion'
 import Nav from '../components/Nav'
 import { BrowserRouter, Route } from 'react-router-dom'
 import QuestionDetail from './QuestionDetail'
+import LeaderBoard from './LeaderBoard'
 
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
                 <Route exact path='/signin' component={Login}/>
                 <Route exact path='/add' component={NewQuestion}/>
                 <Route exact path='/question/:id' component={QuestionDetail}/>
+                <Route exact path='/leaderboard' component={LeaderBoard}/>
             </BrowserRouter>
       </React.Fragment>
     )
