@@ -14,7 +14,7 @@ class LeaderBoard extends React.Component {
                         {users.map((user) =>
                             <li key={user.id}>
                                 <div>
-                                    <img src={user.avatarURL} alt="user's avatar" />
+                                    <img className="avatar" src={user.avatarURL} alt="user's avatar" />
                                     <strong>{user.name}</strong>
                                     <p>Total Questions: <span>{user.questions.length}</span></p>
                                     <p>Total Answers: <span>{Object.keys(user.answers).length}</span></p>

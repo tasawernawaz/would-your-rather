@@ -19,7 +19,7 @@ class UnansweredQuestion extends React.Component {
             <React.Fragment>
                 <h3>{user.name}: asks</h3>
                     <div>
-                        <div><img src={user.avatarURL} alt="avatar url" /></div>
+                        <div><img className="avatar" src={user.avatarURL} alt="avatar url" /></div>
                         <div>
                             <strong>would you rather</strong>
                             <form onSubmit={(e) => handleSubmit(e, this.state.selectedOption)}>

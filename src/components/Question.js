@@ -12,7 +12,7 @@ class Question extends React.Component {
         return (
             <div>
                 {name},
-                <img width="100px" height="100px" src={avatarURL} alt={`avatar of {name}` } />
+                <img className="avatar" src={avatarURL} alt={`avatar of {name}` } />
                 <Link to={`/question/${id}`}>View Poll</Link>
             </div>
         )

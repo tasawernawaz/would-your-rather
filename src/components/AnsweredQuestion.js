@@ -15,7 +15,7 @@ class AnsweredQuestion extends React.Component {
                 <h3>{user.name}: asked</h3>
                     <div>
                         <div>
-                            <img src={user.avatarURL} height="200px" width="200px" alt="avatar url" />
+                            <img className="avatar" src={user.avatarURL} alt="avatar url" />
                         </div>
                         <div>
                             <p>

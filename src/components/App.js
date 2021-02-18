@@ -15,8 +15,10 @@ class App extends React.Component {
   render () {
     const authorized = this.props.authUser !== null ? true : false
     return (
-      <React.Fragment>
+      <div className="container">
+        <h1>Welcome to would you Rather!</h1>
         <BrowserRouter>
+                {/* <PrivateRoute authorized={authorized} path='/' component={Nav} /> */}
                 <Nav />
                 <Route exact path='/signin' component={Login}/>
                 <PrivateRoute authorized={authorized} exact path='/' component={Home} />
@@ -24,7 +26,7 @@ class App extends React.Component {
                 <PrivateRoute authorized={authorized} exact path='/question/:id' component={QuestionDetail} />
                 <PrivateRoute authorized={authorized} exact path='/leaderboard' component={LeaderBoard} />
             </BrowserRouter>
-      </React.Fragment>
+      </div>
     )
   }
 }

@@ -46,9 +46,6 @@ class Login extends React.Component {
 
         return (
             <div>
-
-                <h1>Welcome to would you Rather!</h1>
-
                 <div>
                     Please select your name
                     <select value={this.state.selectedUser} onChange={this.handleChange}>
