@@ -12,35 +12,25 @@ class Nav extends React.Component {
 
     render () {
         return (
-            <nav className='nav'>
-              <ul>
-                <li>
-                  <NavLink to='/' exact activeClassName='active'>
-                    Home
-                  </NavLink>
+            <React.Fragment>
+              <ul class="nav">
+                <li class="nav-item">
+                  <NavLink class="nav-link" to='/' exact activeClassName='active'>Home</NavLink>
                 </li>
-                <li>
-                  <NavLink to='/add' activeClassName='active'>
-                    New Question
-                  </NavLink>
+                <li class="nav-item">
+                  <NavLink class="nav-link" to='/add' activeClassName='active'>New Question</NavLink>
                 </li>
-                <li>
-                  <NavLink to='/leaderboard' activeClassName='active'>
-                    Leader Board
-                  </NavLink>
+                <li class="nav-item">
+                  <NavLink class="nav-link" to='/leaderboard' exact activeClassName='active'>Leader Board</NavLink>
                 </li>
-              </ul>
-              <ul>
-                <li>
-                    Hello, {this.props.authUser}
+                <li class="nav-item">
+                  <span> Hello, <strong>{this.props.authUser}</strong></span>
                 </li>
-                <li>
-                  <button onClick={this.handleClick}>
-                    Logout
-                  </button>
+                <li class="nav-item">
+                  <button type="button" class="btn btn-dark btn-sm" onClick={this.handleClick}>Logout</button>
                 </li>
               </ul>
-            </nav>
+            </React.Fragment>
           )
         }
 }
