@@ -10,10 +10,14 @@ class Question extends React.Component {
         const {id} = this.props.question
 
         return (
-            <div>
-                {name},
+            <div className="question">
                 <img className="avatar" src={avatarURL} alt={`avatar of {name}` } />
-                <Link to={`/question/${id}`}>View Poll</Link>
+                {name},
+                <div>
+                    <span> ... would you rather ... </span>
+                    <Link to={`/question/${id}`}>View Poll</Link>
+                </div>
+
             </div>
         )
     }

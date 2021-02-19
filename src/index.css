@@ -26,3 +26,11 @@ h1 {
 .btn-submit {
   margin-top: 10px;
 }
+
+.question {
+  border-bottom: solid 1px;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #2f4f4f;
+}
