@@ -16,41 +16,44 @@ class UnansweredQuestion extends React.Component {
     render() {
         const { user, question, handleSubmit } = this.props
         return (
-            <React.Fragment>
-                <h3>{user.name}: asks</h3>
+            <div>
+                <img className="avatar" src={user.avatarURL} alt="avatar url" />
+                <strong>{user.name}: asks</strong>
+                <div>
+                    <strong>would you rather</strong>
+                    <form className="question-form" onSubmit={(e) => handleSubmit(e, this.state.selectedOption)}>
                     <div>
-                        <div><img className="avatar" src={user.avatarURL} alt="avatar url" /></div>
-                        <div>
-                            <strong>would you rather</strong>
-                            <form onSubmit={(e) => handleSubmit(e, this.state.selectedOption)}>
-
-                                <label>
-                                    <input
-                                    type="radio"
-                                    name={question.id}
-                                    value="optionOne"
-                                    checked={this.state.selectedOption === "optionOne"}
-                                    onChange={this.handleChange}
-                                    />
-                                {question.optionOne.text}
-                                </label>
-
-                                <label>
-                                    <input
-                                    type="radio"
-                                    id="optionTwo"
-                                    name={question.id}
-                                    value="optionTwo"
-                                    checked={this.state.selectedOption === "optionTwo"}
-                                    onChange={this.handleChange}
-                                    />
-                                {question.optionTwo.text}
-                                </label>
-                                <button type="submit">Submit</button>
-                            </form>
-                        </div>
+                        <label>
+                            <input
+                            className="form-check-input"
+                            type="radio"
+                            name={question.id}
+                            value="optionOne"
+                            checked={this.state.selectedOption === "optionOne"}
+                            onChange={this.handleChange}
+                            />
+                        {question.optionOne.text}
+                        </label>
                     </div>
-            </React.Fragment>
+                    <div>
+                        <label>
+                            <input
+                            className="form-check-input"
+                            type="radio"
+                            id="optionTwo"
+                            name={question.id}
+                            value="optionTwo"
+                            checked={this.state.selectedOption === "optionTwo"}
+                            onChange={this.handleChange}
+                            />
+                        {question.optionTwo.text}
+                        </label>
+                        </div>
+
+                        <button className="btn btn-info btn-sm" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
         )
     }
 }
