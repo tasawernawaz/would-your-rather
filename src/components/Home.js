@@ -9,7 +9,7 @@ import { hasUserAnswered } from '../utils/api'
 class Home extends React.Component {
 
     state = {
-        showTab: "answered"
+        showTab: "unanswered"
     }
 
     componentDidMount() {
@@ -17,7 +17,7 @@ class Home extends React.Component {
     }
 
     render () {
-        const { answeredQuestion, unAnsweredQuestion } = this.props
+        const { answeredQuestions, unAnsweredQuestions } = this.props
 
         return (
             <React.Fragment>
@@ -31,9 +31,9 @@ class Home extends React.Component {
                 </ul>
                 <div className="row flex-column">
                     {this.state.showTab === "answered" ? (
-                        answeredQuestion.map(question => <Question questionId={question.id} />)
+                        answeredQuestions.map(question => <Question questionId={question.id} />)
                     ):
-                    unAnsweredQuestion.map(question => <Question questionId={question.id} />)
+                    unAnsweredQuestions.map(question => <Question questionId={question.id} />)
                     }
                 </div>
             </React.Fragment>
@@ -43,12 +43,12 @@ class Home extends React.Component {
 
 function mapStateToProps({questions, authUser}) {
     const questionsArray = Object.values(questions)
-    const answeredQuestion = questionsArray.filter(question => hasUserAnswered(question, authUser))
-    const unAnsweredQuestion = questionsArray.filter(question => !hasUserAnswered(question, authUser))
+    const answeredQuestions = questionsArray.filter(question => hasUserAnswered(question, authUser))
+    const unAnsweredQuestions = questionsArray.filter(question => !hasUserAnswered(question, authUser))
 
     return {
-        answeredQuestion,
-        unAnsweredQuestion,
+        answeredQuestions: answeredQuestions.sort((a,b,) => b.timestamp - a.timestamp),
+        unAnsweredQuestions: unAnsweredQuestions.sort((a,b,) => b.timestamp - a.timestamp)
     }
 }
 
