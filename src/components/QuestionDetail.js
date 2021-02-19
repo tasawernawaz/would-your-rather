@@ -10,7 +10,6 @@ class QuestionDetail extends React.Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
             answered : hasUserAnswered(this.props.question, this.props.authUser)
         }
@@ -29,8 +28,7 @@ class QuestionDetail extends React.Component {
     render () {
         const questionId = this.props.questionId
         return (
-            <div>
-                <h2>Question Details</h2>
+            <div className="row question">
                 {this.state.answered === true ?
                 <AnsweredQuestion questionId={questionId}/>
                 : <UnansweredQuestion

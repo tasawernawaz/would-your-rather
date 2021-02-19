@@ -12,24 +12,19 @@ class AnsweredQuestion extends React.Component {
         const totalVotes = optionOneVotes.length + optionTwoVotes.length
         return (
             <React.Fragment>
-                <h3>{user.name}: asked</h3>
+                <div>
+                    <img className="avatar" src={user.avatarURL} alt="avatar url" />
+                    <strong>{user.name}: asked</strong>
                     <div>
-                        <div>
-                            <img className="avatar" src={user.avatarURL} alt="avatar url" />
-                        </div>
-                        <div>
-                            <p>
-                                {optionOneVotes.includes(authUser.id) && <strong>You voted for this</strong>}
-                                {optionOne.text}
-                                <span>{`${optionOneVotes.length} out of ${totalVotes}`}</span>
-                            </p>
-                            <p>
-                                {optionTwoVotes.includes(authUser.id) && <strong>You voted for this</strong>}
-                                {optionTwo.text}
-                                <span>{`${optionTwoVotes.length} out of ${totalVotes}`}</span>
-                            </p>
-                        </div>
+                        <strong>{optionOne.text}</strong> - {optionOneVotes.includes(authUser) && <strong className="text-info font-italic">You voted for this</strong>}
+                        <div className="text-info">{`${optionOneVotes.length} out of ${totalVotes}`}</div>
                     </div>
+                    <div class="font-weight-bold text-center">OR</div>
+                    <div>
+                        <strong>{optionTwo.text}</strong> - {optionTwoVotes.includes(authUser) && <strong className="text-info font-italic">You voted for this</strong>}
+                        <div className="text-info"> <span>{`${optionTwoVotes.length} out of ${totalVotes}`}</span> </div>
+                    </div>
+                </div>
             </React.Fragment>
         )
     }
