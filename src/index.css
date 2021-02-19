@@ -1,3 +1,7 @@
+.container {
+  width: max-content !important;
+}
+
 h1 {
   text-align: center;
   margin: 30px !important;
@@ -17,4 +21,8 @@ h1 {
 
 .question-tabs li {
   padding-right: 10px;
+}
+
+.btn-submit {
+  margin-top: 10px;
 }

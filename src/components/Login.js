@@ -47,7 +47,7 @@ class Login extends React.Component {
         return (
             <div className="container">
                 <h1>Welcome to would you Rather!</h1>
-                <div className="row flex-column login-form">
+                <div className="row flex-column">
                     <div class="form-group">
                         <label for="user">Please select your name</label>
                         <select class="form-control" id="user" value={this.state.selectedUser} onChange={this.handleChange}>
