@@ -1,3 +1,9 @@
+h1 {
+  text-align: center;
+  margin: 30px !important;
+  color: #2f4f4f;
+}
+
 .nav-user {
   margin-left: auto;
 }

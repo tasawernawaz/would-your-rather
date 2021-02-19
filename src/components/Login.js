@@ -45,16 +45,19 @@ class Login extends React.Component {
         }
 
         return (
-            <div>
-                <div>
-                    Please select your name
-                    <select value={this.state.selectedUser} onChange={this.handleChange}>
+            <div className="container">
+                <h1>Welcome to would you Rather!</h1>
+                <div className="row flex-column login-form">
+                    <div class="form-group">
+                        <label for="user">Please select your name</label>
+                        <select class="form-control" id="user" value={this.state.selectedUser} onChange={this.handleChange}>
                         <option value="none">Select a user...</option>
                         {this.props.users.map(user =>
                             <option value={user.id} key={user.id}>{user.name}</option>
                         )}
                     </select>
-                    <button type="submit" onClick={this.handleSubmit}>Login</button>
+                    </div>
+                    <button className="btn btn-info btn-sm" type="submit" onClick={this.handleSubmit}>Login</button>
                 </div>
             </div>
         )

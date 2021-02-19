@@ -16,7 +16,6 @@ class App extends React.Component {
     const authorized = this.props.authUser !== null ? true : false
     return (
       <div className="container">
-        <h1>Welcome to would you Rather!</h1>
         <BrowserRouter>
                 {/* <PrivateRoute authorized={authorized} path='/' component={Nav} /> */}
                 <Nav />

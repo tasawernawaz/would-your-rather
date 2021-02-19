@@ -15,13 +15,13 @@ class Nav extends React.Component {
             <React.Fragment>
               <ul class="nav">
                 <li class="nav-item">
-                  <NavLink class="nav-link" to='/' exact activeClassName='active'>Home</NavLink>
+                  <NavLink class="nav-link" to='/' exact >Home</NavLink>
                 </li>
                 <li class="nav-item">
-                  <NavLink class="nav-link" to='/add' activeClassName='active'>New Question</NavLink>
+                  <NavLink class="nav-link" to='/add'>New Question</NavLink>
                 </li>
                 <li class="nav-item">
-                  <NavLink class="nav-link" to='/leaderboard' exact activeClassName='active'>Leader Board</NavLink>
+                  <NavLink class="nav-link" to='/leaderboard' exact>Leader Board</NavLink>
                 </li>
                 <li class="nav-item">
                   <span> Hello, <strong>{this.props.authUser}</strong></span>
