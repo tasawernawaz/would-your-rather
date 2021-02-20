@@ -13,7 +13,7 @@ class AnsweredQuestion extends React.Component {
         return (
             <React.Fragment>
                 <div>
-                    <img className="avatar" src={user.avatarURL} alt="avatar url" />
+                    <img className="avatar" src={user.avatarURL}  alt={`avatar of ${user.name}`} />
                     <strong>{user.name}: asked</strong>
                     <div>
                         <strong>{optionOne.text}</strong> {optionOneVotes.includes(authUser) && <strong className="text-info font-italic"> - You voted for this</strong>}

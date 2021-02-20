@@ -10,18 +10,22 @@ class LeaderBoard extends React.Component {
             <div>
                 <h2>Leader Board</h2>
                 <div>
-                    <ul>
                         {users.map((user) =>
-                            <li key={user.id}>
+                            <div className="question">
                                 <div>
-                                    <img className="avatar" src={user.avatarURL} alt="user's avatar" />
+                                <img className="avatar" src={user.avatarURL} alt={`avatar of ${user.name}`} />
                                     <strong>{user.name}</strong>
-                                    <p>Total Questions: <span>{user.questions.length}</span></p>
-                                    <p>Total Answers: <span>{Object.keys(user.answers).length}</span></p>
+                                    <div className=" row flex-column">
+                                        <span>Total Questions: {user.questions.length}</span>
+                                        <span>Total Answers: {Object.keys(user.answers).length}</span>
+                                        <span className="text-info">Total Scrore: {Object.keys(user.answers).length + user.questions.length} </span>
+
+                                    </div>
+
                                 </div>
-                            </li>
+                            </div>
                         )}
-                    </ul>
+
                 </div>
             </div>
         )

@@ -17,7 +17,7 @@ class UnansweredQuestion extends React.Component {
         const { user, question, handleSubmit } = this.props
         return (
             <div>
-                <img className="avatar" src={user.avatarURL} alt="avatar url" />
+                <img className="avatar" src={user.avatarURL} alt={`avatar of ${user.name}` } />
                 <strong>{user.name}: asks</strong>
                 <div>
                     <strong>would you rather</strong>

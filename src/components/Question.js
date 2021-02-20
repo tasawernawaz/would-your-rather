@@ -11,7 +11,7 @@ class Question extends React.Component {
 
         return (
             <div className="question">
-                <img className="avatar" src={avatarURL} alt={`avatar of {name}` } />
+                <img className="avatar" src={avatarURL} alt={`avatar of ${name}` } />
                 {name},
                 <div>
                     <span> ... would you rather ... </span>
