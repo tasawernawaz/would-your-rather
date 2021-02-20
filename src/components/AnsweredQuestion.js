@@ -16,12 +16,12 @@ class AnsweredQuestion extends React.Component {
                     <img className="avatar" src={user.avatarURL} alt="avatar url" />
                     <strong>{user.name}: asked</strong>
                     <div>
-                        <strong>{optionOne.text}</strong> - {optionOneVotes.includes(authUser) && <strong className="text-info font-italic">You voted for this</strong>}
+                        <strong>{optionOne.text}</strong> {optionOneVotes.includes(authUser) && <strong className="text-info font-italic"> - You voted for this</strong>}
                         <div className="text-info">{`${optionOneVotes.length} out of ${totalVotes}`}</div>
                     </div>
                     <div class="font-weight-bold text-center">OR</div>
                     <div>
-                        <strong>{optionTwo.text}</strong> - {optionTwoVotes.includes(authUser) && <strong className="text-info font-italic">You voted for this</strong>}
+                        <strong>{optionTwo.text}</strong> {optionTwoVotes.includes(authUser) && <strong className="text-info font-italic"> - You voted for this</strong>}
                         <div className="text-info"> <span>{`${optionTwoVotes.length} out of ${totalVotes}`}</span> </div>
                     </div>
                 </div>

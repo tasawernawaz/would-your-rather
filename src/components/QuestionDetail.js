@@ -19,7 +19,7 @@ class QuestionDetail extends React.Component {
 
     handleSubmit = (e, selectedOption) => {
         e.preventDefault()
-        const questionId = this.props.question.questionId
+        const questionId = this.props.question.id
         this.props.dispatch(createSaveQuestionAnswer(questionId, selectedOption))
         this.setState({
             answered: true
@@ -36,9 +36,9 @@ class QuestionDetail extends React.Component {
         return (
             <div className="row question">
                 {this.state.answered === true ?
-                <AnsweredQuestion questionId={question.questionId}/>
+                <AnsweredQuestion questionId={question.id}/>
                 : <UnansweredQuestion
-                questionId={question.questionId}
+                questionId={question.id}
                 handleSubmit={this.handleSubmit}
                 />
                 }
@@ -51,7 +51,7 @@ function mapStateToProps({questions, authUser}, props) {
     const questionId = props.match.params.id
     return {
         authUser,
-        question: questions.length === 0 ? questions[questionId] : null
+        question: Object.keys(questions).length > 0 ? questions[questionId] : null
     }
 }
 
