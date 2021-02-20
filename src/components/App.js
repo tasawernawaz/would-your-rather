@@ -17,8 +17,8 @@ class App extends React.Component {
     return (
       <div className="container">
         <BrowserRouter>
-                {/* <PrivateRoute authorized={authorized} path='/' component={Nav} /> */}
-                <Nav />
+                {authorized === true && <Nav />}
+
                 <Route exact path='/signin' component={Login}/>
                 <PrivateRoute authorized={authorized} exact path='/' component={Home} />
                 <PrivateRoute authorized={authorized} exact path='/add' component={NewQuestion} />

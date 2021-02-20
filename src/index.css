@@ -21,6 +21,7 @@ h1 {
 
 .question-tabs li {
   padding-right: 10px;
+  color: #2f4f4f;
 }
 
 .btn-submit {
@@ -37,4 +38,33 @@ h1 {
 
 .question-form {
   margin-left: 20px;
+}
+
+.nav-bar:first-child {
+  padding-left: 0;
+}
+
+.nav-bar a {
+  padding: 10px;
+}
+
+.nav-bar a:hover {
+  color: #2f4f4f;
+  text-decoration: none;
+}
+
+
+.nav-bar {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-bottom: solid 2px #2f4f4f;
+}
+
+.active {
+  font-weight: bold;
+  color: #2f4f4f;
+}
+
+.nav-tabs a {
+  padding-right: 10px;
 }

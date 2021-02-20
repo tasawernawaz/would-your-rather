@@ -13,23 +13,16 @@ class Nav extends React.Component {
     render () {
         return (
             <React.Fragment>
-              <ul class="nav">
-                <li class="nav-item">
-                  <NavLink class="nav-link" to='/' exact >Home</NavLink>
-                </li>
-                <li class="nav-item">
-                  <NavLink class="nav-link" to='/add'>New Question</NavLink>
-                </li>
-                <li class="nav-item">
-                  <NavLink class="nav-link" to='/leaderboard' exact>Leader Board</NavLink>
-                </li>
-                <li class="nav-item">
-                  <span> Hello, <strong>{this.props.authUser}</strong></span>
-                </li>
-                <li class="nav-item">
-                  <button type="button" class="btn btn-dark btn-sm" onClick={this.handleClick}>Logout</button>
-                </li>
-              </ul>
+              <div className="nav-bar">
+                <NavLink to='/' exact >Home</NavLink>
+                <NavLink to='/add'>New Question</NavLink>
+                <NavLink to='/leaderboard' exact>Leader Board</NavLink>
+                <span> Hello, <strong>{this.props.authUser}</strong></span>
+                <button type="button" class="btn btn-danger btn-sm" onClick={this.handleClick}>
+                  Log out
+                </button>
+              </div>
+
             </React.Fragment>
           )
         }

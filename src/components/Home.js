@@ -21,13 +21,13 @@ class Home extends React.Component {
 
         return (
             <React.Fragment>
-                <ul class="nav nav-tabs question-tabs">
-                    <li key="answered">
-                        <button className="btn btn-info btn-sm" onClick={() => (this.setState({showTab: "answered"}))} >Answered</button>
-                    </li>
-                    <li key="unanswered">
-                        <button className="btn btn-info btn-sm" onClick={() => (this.setState({showTab: "unanswered"}))} >UnAnswered</button>
-                    </li>
+                <ul className="nav nav-tabs">
+                <li className="nav-item">
+                    <a className="nav-link" href="/#" onClick={() => (this.setState({showTab: "answered"}))}>Answered</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="/#" onClick={() => (this.setState({showTab: "unanswered"}))}>UnAnswered</a>
+                </li>
                 </ul>
                 <div className="row flex-column">
                     {this.state.showTab === "answered" ? (
