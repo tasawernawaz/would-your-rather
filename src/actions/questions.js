@@ -3,6 +3,7 @@ import {
   getQuestions,
   saveQuestionAnswerApi
 } from '../utils/api'
+import { showLoading, hideLoading} from 'react-redux-loading'
 
 export const CREATE_QUESTION = 'CREATE_QUESTION'
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -29,7 +30,7 @@ export function saveQuestionAnswer (data) {
   }
 }
 
-export function createSaveQuestionAnswer (questionId, selectedOption) {
+export function saveQuestionAnswerCreator (questionId, selectedOption) {
   return (dispatch, getState) => {
     const { authUser } = getState()
     const data = {
@@ -39,7 +40,9 @@ export function createSaveQuestionAnswer (questionId, selectedOption) {
     }
     return saveQuestionAnswerApi(data)
       .then(() => {
+        dispatch(showLoading())
         dispatch(saveQuestionAnswer(data))
+        dispatch(hideLoading())
       })
   }
 }

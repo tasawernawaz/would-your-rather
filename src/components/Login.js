@@ -48,9 +48,9 @@ class Login extends React.Component {
             <div className="container">
                 <h1>Welcome to would you Rather!</h1>
                 <div className="row flex-column">
-                    <div class="form-group">
-                        <label for="user">Please select your name</label>
-                        <select class="form-control" id="user" value={this.state.selectedUser} onChange={this.handleChange}>
+                    <div className="form-group">
+                        <label htmlFor="user">Please select your name</label>
+                        <select className="form-control" id="user" value={this.state.selectedUser} onChange={this.handleChange}>
                         <option value="none">Select a user...</option>
                         {this.props.users.map(user =>
                             <option value={user.id} key={user.id}>{user.name}</option>

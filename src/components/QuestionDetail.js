@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import AnsweredQuestion from './AnsweredQuestion'
 import UnansweredQuestion from './UnansweredQuestion'
-import { createSaveQuestionAnswer } from '../actions/questions'
+import { saveQuestionAnswerCreator } from '../actions/questions'
 import { hasUserAnswered } from '../utils/api'
 
 
@@ -24,7 +24,7 @@ class QuestionDetail extends React.Component {
             return
         }
         const questionId = this.props.question.id
-        this.props.dispatch(createSaveQuestionAnswer(questionId, selectedOption))
+        this.props.dispatch(saveQuestionAnswerCreator(questionId, selectedOption))
         this.setState({
             answered: true
         })
