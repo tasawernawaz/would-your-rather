@@ -1,3 +1,47 @@
+# Project Overview
+
+## Before start
+
+Clone the project from [My forked repo](https://github.com/tasawernawaz/would-your-rather).
+
+```
+git clone git@github.com:tasawernawaz/would-your-rather.git
+```
+
+After clonning project run the following commands to start the server.
+
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
+
+By default server would be start at http://localhost:3000/.
+
+## Login Page:
+
+Before proceeding you have to login to the application, you can login by selecting any user from the dropdown.
+
+## Home Page:
+
+After successful login, you will be redirected to the home page. You can see all the questions listed under answered or unanswered tab. You can navigate between both catagories. You can click on `view poll` to see the details of any question.
+
+## Question Details:
+
+Once you click on the question there are two types of view for this page. If you already answered the question you will see the total votes with option. If you haven’t already answered this question you can submit your answer by selecting an option.
+
+## Nav Bar:
+From Navbar you can navigate between different pages e.g New question, leader board. You can click on the logout button to logout from the application.
+
+## New Question:
+
+By clicking on a new question from navbar you will be redirected to the new question page. You can add two options and submit the question to save it.
+
+## Leader Board:
+
+The leader board contains a list of all users with their total score. The total score is calculated as a sum of total questions asked and total answers by the user.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
