@@ -11,6 +11,11 @@ class NewQuestion extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        if (this.state.optionOneText === "" || this.state.optionTwoText === "") {
+            alert ("Please fill both opttions.")
+            return
+        }
+
         this.props.dispatch(createQuestionCreator(this.state.optionOneText, this.state.optionTwoText))
         this.setState(() => ({
             optionOneText: "",

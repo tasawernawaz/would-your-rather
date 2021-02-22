@@ -19,6 +19,10 @@ class QuestionDetail extends React.Component {
 
     handleSubmit = (e, selectedOption) => {
         e.preventDefault()
+        if (selectedOption === "") {
+            alert("Please select an option before proceed.")
+            return
+        }
         const questionId = this.props.question.id
         this.props.dispatch(createSaveQuestionAnswer(questionId, selectedOption))
         this.setState({
