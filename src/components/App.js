@@ -9,11 +9,9 @@ import QuestionDetail from './QuestionDetail'
 import LeaderBoard from './LeaderBoard'
 import { PrivateRoute } from './PrivateRoute'
 
-
 class App extends React.Component {
-
   render () {
-    const authorized = this.props.authUser !== null ? true : false
+    const authorized = this.props.authUser !== null
     return (
       <div className="container">
         <BrowserRouter>
@@ -30,11 +28,10 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps ({authUser}) {
+function mapStateToProps ({ authUser }) {
   return {
     authUser
   }
 }
-
 
 export default connect(mapStateToProps)(App)

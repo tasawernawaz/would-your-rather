@@ -2,11 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 class LeaderBoard extends React.Component {
+  render () {
+    const { users } = this.props
 
-    render () {
-        const { users } = this.props
-
-        return (
+    return (
             <div>
                 <h2>Leader Board</h2>
                 <div>
@@ -28,18 +27,17 @@ class LeaderBoard extends React.Component {
 
                 </div>
             </div>
-        )
-    }
-
+    )
+  }
 }
 
-function mapStateToProps({users}) {
-    const usersList = Object.values(users)
-    return {
-        users: usersList.sort((a, b) =>
-            (Object.keys(b.answers).length + b.questions.length)
-            - (Object.keys(a.answers).length + a.questions.length)
-        )
-    }
+function mapStateToProps ({ users }) {
+  const usersList = Object.values(users)
+  return {
+    users: usersList.sort((a, b) =>
+      (Object.keys(b.answers).length + b.questions.length) -
+            (Object.keys(a.answers).length + a.questions.length)
+    )
+  }
 }
 export default connect(mapStateToProps)(LeaderBoard)
