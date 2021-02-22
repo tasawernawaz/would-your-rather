@@ -33,13 +33,13 @@ class NewQuestion extends React.Component {
                     <h3>Would you rather?</h3>
                     <form onSubmit={this.handleSubmit}>
                         <input
-                        class="form-control"
+                        className="form-control"
                         value={this.state.optionOneText}
                         onChange={e => this.setState({optionOneText: e.target.value})}
                         placeholder="Option one"></input>
-                        <div class="font-weight-bold text-center">OR</div>
+                        <div className="font-weight-bold text-center">OR</div>
                         <input
-                        class="form-control"
+                        className="form-control"
                         placeholder="Option two"
                         value={this.state.optionTwoText}
                         onChange={e => this.setState({optionTwoText: e.target.value})}
