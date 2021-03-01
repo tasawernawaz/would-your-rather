@@ -1,3 +1,5 @@
+// coppied from the lesson about middlewares
+
 const logger = (store) => (next) => (action) => {
   console.group(action)
   console.log('The action is', action)

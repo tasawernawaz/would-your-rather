@@ -1,30 +1,34 @@
+//coppied same boilerplate as we did in twitter app learning
+
 import { CREATE_QUESTION, RECEIVE_QUESTIONS, SAVE_VOTE } from '../actions/questions'
 
-export default function questions (state = {}, action) {
+export default function questions (questions = {}, action) {
   switch (action.type) {
     case CREATE_QUESTION:
       return {
-        ...state,
+        ...questions,
         [action.question.id]: action.question
       }
     case RECEIVE_QUESTIONS:
       return {
-        ...state,
+        ...questions,
         ...action.questions
       }
     case SAVE_VOTE:
       const { qid, answer, authedUser } = action.data
+      const votes = questions[qid][answer].votes.concat([authedUser])
+
       return {
-        ...state,
+        ...questions,
         [qid]: {
-          ...state[qid],
+          ...questions[qid],
           [answer]: {
-            ...state[qid][answer],
-            votes: state[qid][answer].votes.concat([authedUser])
+            ...questions[qid][answer],
+            votes: votes
           }
         }
       }
     default:
-      return state
+      return questions
   }
 }

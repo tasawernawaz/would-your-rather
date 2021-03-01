@@ -3,13 +3,13 @@ import {
   REMOVE_AUTHED_USER
 } from '../actions/authUser'
 
-export default function authUser (state = null, action) {
+export default function authUser (user = null, action) {
   switch (action.type) {
     case SET_AUTHED_USER:
       return action.id
     case REMOVE_AUTHED_USER:
       return null
     default:
-      return state
+      return user
   }
 }

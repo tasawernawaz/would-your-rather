@@ -1,3 +1,5 @@
+// used same patteren as we did in twitter app learning lesson
+
 import { combineReducers } from 'redux'
 import users from '../reducers/users'
 import authUser from '../reducers/authUser'
